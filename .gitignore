@@ -1,0 +1,10 @@
+.ycm_extra_conf.py
+.ycm_extra_conf.pyc
+.cmake
+CMakeFiles
+cmake*
+*.swp
+.vimrc
+tags
+.idea
+_deps

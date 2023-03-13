@@ -92,7 +92,7 @@ set(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL  "Whether to use extensions of C++ ISO S
 include(FetchWfn91LinAlgModules)
 include(FindLinalg)
 include(FindOrFetchBTAS)
-#include(FindOrFetchH5)
+include(FindOrFetchH5)
 
 add_executable(CP_THC main.cpp)
 target_link_libraries(CP_THC BTAS::BTAS)
