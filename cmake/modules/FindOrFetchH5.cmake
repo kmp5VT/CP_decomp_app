@@ -8,7 +8,7 @@ if(NOT TARGET H5)
   FetchContent_Declare(
             H5
             GIT_REPOSITORY      https://github.com/HDFGroup/hdf5
-            GIT_TAG             83f81a64222e61c8cc25e48ccefa700631006aab
+            GIT_TAG             befbbd0b6d508f18af493b7138ca85b117976db6
       )
 
   FetchContent_Populate(H5)
@@ -21,7 +21,7 @@ if(NOT TARGET H5)
                              )
   FetchContent_MakeAvailable(H5)
 
-  include("${H5_BINARY_DIR}/cmake_install.cmake")
+  include("${H5_BINARY_DIR}/../h5-subbuild/cmake_install.cmake")
 
   # Bring the populated content into the build
   if (TARGET H5 AND NOT TARGET HDF5::H5)

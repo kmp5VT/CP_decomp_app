@@ -26,7 +26,7 @@ if (NOT TARGET BTAS::BTAS)
   FetchContent_Declare(
       BTAS
       GIT_REPOSITORY      https://github.com/BTAS/btas.git
-      GIT_TAG             b2ab6ab996e922375c0915f1ca10bc8ee53845f1
+      GIT_TAG             01240ff955e7bad5320284320341f4ac171317c1
   )
   FetchContent_MakeAvailable(BTAS)
   FetchContent_GetProperties(BTAS
