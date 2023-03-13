@@ -28,17 +28,13 @@ int main(int argc, char **argv){
     using namespace btas;
 
     using tensor =
-            Tensor<double, btas::Range, btas::varray<double>>;
+            //Tensor<double, btas::Range, btas::varray<double>>;
+            Tensor<std::complex<double>, btas::Range, btas::varray<std::complex<double>>>;
 
     tensor T(dim1, dim2, dim3);
-    auto fill=[](tensor & a){
-        std::mt19937 generator(random_seed_accessor());
-        std::uniform_real_distribution<> distribution(-1.0, 1.0);
-        for (auto iter = a.begin(); iter != a.end(); ++iter) {
-            *(iter) = distribution(generator);
-        }
-    };
-    fill(T);
+    for(auto & i : T)
+        i = (std::rand(), std::rand());
+
 
     auto norm = std::real(sqrt(dot(T, T)));
     FitCheck<tensor> fit(1e-3);
