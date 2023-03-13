@@ -29,7 +29,6 @@ int main(int argc, char **argv){
 
     using tensor =
             Tensor<double, btas::Range, btas::varray<double>>;
-            //Tensor<std::complex<double>, btas::Range, btas::varray<std::complex<double>>>;
 
     tensor T(dim1, dim2, dim3);
     auto fill=[](tensor & a){
@@ -41,14 +40,14 @@ int main(int argc, char **argv){
     };
     fill(T);
 
-    double norm = sqrt(dot(T, T));
+    auto norm = std::real(sqrt(dot(T, T)));
     FitCheck<tensor> fit(1e-3);
     fit.set_norm(norm);
     fit.verbose(true);
 
     CP_ALS<tensor, FitCheck<tensor>> CP(T);
 
-    CP.compute_rank(rank, fit, 1, false, 0, 100, true, false, true);
+    CP.compute_rank_random(rank, fit, 1000, true, false, true);
 
     auto T_btas = CP.reconstruct();
 
